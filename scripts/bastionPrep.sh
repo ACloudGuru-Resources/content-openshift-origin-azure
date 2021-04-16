@@ -31,6 +31,7 @@ echo $(date) " - Adding SSH keys"
 
 wget https://raw.githubusercontent.com/ACloudGuru-Resources/content-openshift-origin-azure/master/ssh/id_rsa -P /home/azureuser/.ssh/
 wget https://raw.githubusercontent.com/ACloudGuru-Resources/content-openshift-origin-azure/master/ssh/id_rsa.pub -P /home/azureuser/.ssh/
+chown azureuser:azureuser /home/azureuser/.ssh/id_rsa*
 chmod 600 /home/azureuser/.ssh/id_rsa*
 
 ssh -o StrictHostKeyChecking=no master.example.xip.io uname -a
@@ -68,7 +69,7 @@ masters
 nodes
 
 [OSEv3:vars]
-ansible_ssh_user=cloud_user
+ansible_ssh_user=azureuser
 ansible_become=yes
 debug_level=2
 openshift_deployment_type=origin
