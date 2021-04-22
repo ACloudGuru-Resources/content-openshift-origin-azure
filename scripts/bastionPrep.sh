@@ -42,7 +42,7 @@ chmod 600 /home/azureuser/.ssh/id_rsa*
 # set it on /etc/ssh/ssh_config instead
 #/etc/ssh/ssh_config
 echo 'Host *' >> /etc/ssh/ssh_config
-echo '   StrictHostKeyChecking ask'  >> /etc/ssh/ssh_config
+echo '   StrictHostKeyChecking no'  >> /etc/ssh/ssh_config
 echo '   UserKnownHostsFile /dev/null'  >> /etc/ssh/ssh_config
 
 echo $(date) " - SSH keys added"
