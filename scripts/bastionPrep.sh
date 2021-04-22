@@ -34,9 +34,16 @@ wget https://raw.githubusercontent.com/ACloudGuru-Resources/content-openshift-or
 chown azureuser:azureuser /home/azureuser/.ssh/id_rsa*
 chmod 600 /home/azureuser/.ssh/id_rsa*
 
-ssh -o StrictHostKeyChecking=no master.example.xip.io uname -a
-ssh -o StrictHostKeyChecking=no infra.example.xip.io uname -a
-ssh -o StrictHostKeyChecking=no @node.example.xip.io uname -a
+# this asks for a password so is not a good way to do this in a single script execution
+#ssh -o StrictHostKeyChecking=no master.example.xip.io uname -a
+#ssh -o StrictHostKeyChecking=no infra.example.xip.io uname -a
+#ssh -o StrictHostKeyChecking=no @node.example.xip.io uname -a
+
+# set it on /etc/ssh/ssh_config instead
+#/etc/ssh/ssh_config
+echo 'Host *' >> /etc/ssh/ssh_config
+echo '   StrictHostKeyChecking ask'  >> /etc/ssh/ssh_config
+echo '   UserKnownHostsFile /dev/null'  >> /etc/ssh/ssh_config
 
 echo $(date) " - SSH keys added"
 
