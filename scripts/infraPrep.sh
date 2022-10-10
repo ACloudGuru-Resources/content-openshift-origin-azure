@@ -40,7 +40,6 @@ echo $(date) " -Entries added to host file"
 echo $(date) " - Update system to latest packages and install dependencies"
 
 yum -y install wget git net-tools bind-utils iptables-services bridge-utils bash-completion kexec-tools sos psacct
-yum -y update
 
 echo $(date) " - System updates successfully installed"
 
@@ -49,7 +48,7 @@ echo $(date) " - System updates successfully installed"
 
 echo $(date) " - Installing Ansible, pyOpenSSL and python-passlib"
 yum -y --enablerepo=epel install pyOpenSSL python-passlib
-yum -y install https://releases.ansible.com/ansible/rpm/release/epel-7-x86_64/ansible-2.6.2-1.el7.ans.noarch.rpm
+yum -y install ansible
 
 # Install java to support metrics
 echo $(date) " - Installing Java"
