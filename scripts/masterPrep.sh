@@ -10,8 +10,6 @@ echo $(date) " - Installing EPEL"
 
 yum -y install epel-release
 sed -i -e "s/^enabled=1/enabled=0/" /etc/yum.repos.d/epel.repo
-sed -i -e "s/python/python2.7/" /usr/bin/yum
-sed -i -e "s/python/python2.7/" /usr/libexec/urlgrabber-ext-down
 
 echo $(date) " - EPEL successfully installed"
 
@@ -79,7 +77,7 @@ echo $(date) " - Setup of htpasswd successfully"
 
 echo $(date) " - Installing Ansible, pyOpenSSL and python-passlib"
 yum -y --enablerepo=epel install pyOpenSSL python-passlib
-yum -y --enablerepo=epel install ansible python3 openssl-devel python-devel
+yum -y --enablerepo=epel install ansible openssl-devel python-devel
 
 alternatives --install /usr/bin/python python /usr/bin/python3 60
 
