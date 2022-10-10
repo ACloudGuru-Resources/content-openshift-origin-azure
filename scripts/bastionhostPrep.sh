@@ -44,7 +44,7 @@ wget https://raw.githubusercontent.com/linuxacademy/content-openshift-origin-azu
 wget https://raw.githubusercontent.com/linuxacademy/content-openshift-origin-azure/master/ssh/id_rsa.pub -P /home/azureuser/.ssh/
 
 chown azureuser:azureuser /home/azureuser/.ssh/id_rsa*
-chmod 600 /home/azureuser/.ssh/id_rsa*
+chmod 400 /home/azureuser/.ssh/id_rsa*
 
 ssh -o StrictHostKeyChecking=no master.example.xip.io uname -a
 
@@ -65,9 +65,7 @@ echo $(date) " - EPEL successfully installed"
 # Installation Ansible, pyOpenSSL and python-passlib
 echo $(date) " - Installing Ansible, pyOpenSSL and python-passlib"
 
-yum -y --enablerepo=epel install ansible python3 openssl-devel python-devel
-
-alternatives --install /usr/bin/python python /usr/bin/python3 60
+yum -y --enablerepo=epel install ansible openssl-devel python-devel
 
 echo $(date) " - Ansible, pyOpenSSL and python-passlib successfully installed"
 
@@ -75,8 +73,6 @@ echo $(date) " - Installing OKD packages, openshift-ansible, and docker"
 
 sed -i -e "s/#host_key_checking = False/host_key_checking = False/" /etc/ansible/ansible.cfg
 sed -i -e "s/- docker_storage//" /usr/share/ansible/openshift-ansible/playbooks/openshift-checks/private/install.yml
-sed -i -e "s/python/python2.7/" /usr/bin/yum
-sed -i -e "s/python/python2.7/" /usr/libexec/urlgrabber-ext-down
 
 yum -y install centos-release-openshift-origin
 yum -y install openshift-ansible
