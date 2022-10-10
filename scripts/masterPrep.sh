@@ -43,7 +43,6 @@ echo $(date) " -Entries added to host file"
 echo $(date) " - Update system to latest packages and install dependencies"
 
 yum -y install wget git net-tools bind-utils iptables-services bridge-utils bash-completion kexec-tools sos psacct httpd-tools dnsmasq
-yum -y update
 
 echo $(date) " - System updates successfully installed"
 
