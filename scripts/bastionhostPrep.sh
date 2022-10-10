@@ -72,6 +72,7 @@ echo $(date) " - Ansible, pyOpenSSL and python-passlib successfully installed"
 echo $(date) " - Installing OKD packages, openshift-ansible, and docker"
 
 sed -i -e "s/#host_key_checking = False/host_key_checking = False/" /etc/ansible/ansible.cfg
+sed -i -e "s/- docker_storage//" /usr/share/ansible/openshift-ansible/playbooks/openshift-checks/private/install.yml
 
 yum -y install centos-release-openshift-origin
 yum -y install openshift-ansible
