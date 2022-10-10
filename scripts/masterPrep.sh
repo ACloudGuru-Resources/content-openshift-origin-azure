@@ -60,7 +60,7 @@ echo "address=/apps.okd.infra.example.xip.io/10.10.1.11" >> /etc/dnsmasq.conf
 
 echo "resolv-file=/etc/resolv.dnsmasq" >> /etc/dnsmasq.conf
 
-cp /etc/resov.conf /etc/resolv.dnsmasq
+cp /etc/resolv.conf /etc/resolv.dnsmasq
 
 systemctl enable dnsmasq.service
 systemctl start dnsmasq.service
