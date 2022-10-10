@@ -65,7 +65,9 @@ echo $(date) " - EPEL successfully installed"
 # Installation Ansible, pyOpenSSL and python-passlib
 echo $(date) " - Installing Ansible, pyOpenSSL and python-passlib"
 
-yum -y --enablerepo=epel install ansible openssl-devel python-devel
+yum -y --enablerepo=epel install centos-release-ansible-28 openssl-devel python-devel
+
+yum -y install ansible
 
 echo $(date) " - Ansible, pyOpenSSL and python-passlib successfully installed"
 
