@@ -5,6 +5,9 @@ echo $(date) " - Starting Script"
 # Install EPEL repository
 echo $(date) " - Installing EPEL"
 
+sed -i -e "s/python/python2.7/" /usr/bin/yum
+sed -i -e "s/python/python2.7/" /usr/libexec/urlgrabber-ext-down
+
 yum -y install epel-release
 sed -i -e "s/^enabled=1/enabled=0/" /etc/yum.repos.d/epel.repo
 
@@ -48,7 +51,9 @@ echo $(date) " - System updates successfully installed"
 
 echo $(date) " - Installing Ansible, pyOpenSSL and python-passlib"
 yum -y --enablerepo=epel install pyOpenSSL python-passlib
-yum -y --enablerepo=epel install ansible openssl-devel python-devel
+yum -y --enablerepo=epel install ansible python3 openssl-devel python-devel
+
+alternatives --install /usr/bin/python python /usr/bin/python3 60
 
 # Install java to support metrics
 echo $(date) " - Installing Java"
