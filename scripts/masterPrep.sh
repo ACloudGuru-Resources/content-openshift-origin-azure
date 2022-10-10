@@ -79,8 +79,6 @@ echo $(date) " - Installing Ansible, pyOpenSSL and python-passlib"
 yum -y --enablerepo=epel install pyOpenSSL python-passlib
 yum -y --enablerepo=epel install ansible openssl-devel python-devel
 
-alternatives --install /usr/bin/python python /usr/bin/python3 60
-
 # Install java to support metrics
 echo $(date) " - Installing Java"
 
