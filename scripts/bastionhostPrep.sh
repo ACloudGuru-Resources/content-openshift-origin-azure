@@ -65,7 +65,7 @@ echo $(date) " - EPEL successfully installed"
 # Installation Ansible, pyOpenSSL and python-passlib
 echo $(date) " - Installing Ansible, pyOpenSSL and python-passlib"
 
-yum -y --enablerepo=epel install centos-release-ansible-28 openssl-devel python-devel
+yum -y --enablerepo=epel install centos-release-ansible-29 openssl-devel python-devel
 
 yum -y install ansible
 
@@ -75,7 +75,7 @@ echo $(date) " - Installing OKD packages, openshift-ansible, and docker"
 
 sed -i -e "s/#host_key_checking = False/host_key_checking = False/" /etc/ansible/ansible.cfg
 
-yum -y install centos-release-openshift-origin37
+yum -y install centos-release-openshift-origin311
 yum -y install openshift-ansible
 yum -y install docker
 sed -i -e "s#^OPTIONS='--selinux-enabled'#OPTIONS='--selinux-enabled --insecure-registry 172.30.0.0/16'#" /etc/sysconfig/docker
