@@ -75,7 +75,7 @@ echo $(date) " - Installing OKD packages, openshift-ansible, and docker"
 
 sed -i -e "s/#host_key_checking = False/host_key_checking = False/" /etc/ansible/ansible.cfg
 
-yum -y install centos-release-openshift-origin13
+yum -y install centos-release-openshift-origin310
 yum -y install openshift-ansible
 yum -y install docker
 sed -i -e "s#^OPTIONS='--selinux-enabled'#OPTIONS='--selinux-enabled --insecure-registry 172.30.0.0/16'#" /etc/sysconfig/docker
