@@ -125,6 +125,9 @@ master.example.xip.io
 [etcd]
 master.example.xip.io
 
+[etcd:vars]
+etcd_listen_client_urls="https://0.0.0.0:2379"
+
 [nodes]
 master.example.xip.io openshift_node_group_name='node-config-master'
 node.example.xip.io openshift_node_group_name='node-config-compute'
