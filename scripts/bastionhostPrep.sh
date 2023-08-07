@@ -39,9 +39,9 @@ echo $(date) " - Entries added to host file"
 
 echo $(date) " - Adding SSH keys"
 
-wget https://raw.githubusercontent.com/linuxacademy/content-openshift-origin-azure/master/ssh/id_rsa -P /home/azureuser/.ssh/
+wget https://raw.githubusercontent.com/ACloudGuru-Resources/content-openshift-origin-azure/master/ssh/id_rsa -P /home/azureuser/.ssh/
 
-wget https://raw.githubusercontent.com/linuxacademy/content-openshift-origin-azure/master/ssh/id_rsa.pub -P /home/azureuser/.ssh/
+wget https://raw.githubusercontent.com/ACloudGuru-Resources/content-openshift-origin-azure/master/ssh/id_rsa.pub -P /home/azureuser/.ssh/
 
 chown azureuser:azureuser /home/azureuser/.ssh/id_rsa*
 chmod 400 /home/azureuser/.ssh/id_rsa*
