@@ -39,9 +39,9 @@ echo $(date) " - Entries added to host file"
 
 echo $(date) " - Adding SSH keys"
 
-wget https://raw.githubusercontent.com/linuxacademy/content-openshift-origin-azure/master/ssh/id_rsa -P /home/azureuser/.ssh/
+wget https://raw.githubusercontent.com/ACloudGuru-Resources/content-openshift-origin-azure/master/ssh/id_rsa -P /home/azureuser/.ssh/
 
-wget https://raw.githubusercontent.com/linuxacademy/content-openshift-origin-azure/master/ssh/id_rsa.pub -P /home/azureuser/.ssh/
+wget https://raw.githubusercontent.com/ACloudGuru-Resources/content-openshift-origin-azure/master/ssh/id_rsa.pub -P /home/azureuser/.ssh/
 
 chown -R azureuser:azureuser /home/azureuser/.ssh/id_rsa*
 chmod 600 /home/azureuser/.ssh/id_rsa*
@@ -65,7 +65,8 @@ echo $(date) " - EPEL successfully installed"
 # Installation Ansible, pyOpenSSL and python-passlib
 echo $(date) " - Installing Ansible, pyOpenSSL and python-passlib"
 
-yum -y --enablerepo=epel install ansible openssl-devel python-devel
+yum -y --enablerepo=epel install openssl-devel python-devel
+yum -y install https://releases.ansible.com/ansible/rpm/release/epel-7-x86_64/ansible-2.6.2-1.el7.ans.noarch.rpm
 
 echo $(date) " - Ansible, pyOpenSSL and python-passlib successfully installed"
 
