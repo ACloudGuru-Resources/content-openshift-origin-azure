@@ -118,7 +118,7 @@ openshift_master_cluster_public_hostname=okd.master.example.xip.io
 openshift_master_default_subdomain=apps.okd.infra.example.xip.io
 openshift_use_dnsmasq=True
 
-openshift_disable_check=disk_availability,memory_availability
+openshift_disable_check=disk_availability,memory_availability,docker_image_availability
 
 [masters]
 master.example.xip.io
